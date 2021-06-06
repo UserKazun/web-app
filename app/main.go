@@ -1,6 +1,8 @@
 package main
 
-import "local.packages/models"
+import (
+	"github.com/web-app/models"
+)
 
 func main() {
 	db := model.GetDBConn()

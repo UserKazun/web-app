@@ -1,4 +1,4 @@
-module github.com/web-app
+module web-app
 
 go 1.16
 
