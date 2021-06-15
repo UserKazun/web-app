@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/UserKazun/web-app/model"
+	model "local.packages/model"
 )
 
 func main() {

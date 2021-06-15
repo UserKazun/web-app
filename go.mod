@@ -8,11 +8,11 @@ require (
 	github.com/jinzhu/gorm v1.9.16 // indirect
 	gopkg.in/go-playground/assert.v1 v1.2.1 // indirect
 	gopkg.in/go-playground/validator.v9 v9.29.1 // indirect
-	// local.packages/model v0.0.0
-	// local.packages/service v0.0.0
+	local.packages/model v0.0.0
+	local.packages/service v0.0.0
 )
 
-// replace (
-// 	local.packages/model => ./app/model
-// 	local.packages/service => ./app/service
-// )
+replace (
+	local.packages/model => ./model
+	local.packages/service => ./service
+)
