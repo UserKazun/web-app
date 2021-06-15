@@ -2,11 +2,12 @@ package main
 
 import (
 	"fmt"
-	"local.packages/models"
+
+	"github.com/UserKazun/web-app/model"
 )
 
 func main() {
-	db := models.NewDBConn()
+	db := model.NewDBConn()
 
 	fmt.Println(db)
 }
