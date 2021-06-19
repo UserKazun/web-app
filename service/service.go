@@ -1,5 +1,5 @@
 package service
 
-import "github.com/UserKazun/web-app/model"
+import "local.packages/model"
 
 var db = model.GetDBConn()

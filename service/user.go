@@ -1,13 +1,13 @@
 package service
 
 import (
-	"local.packages/models"
+	"local.packages/model"
 )
 
-func CreateUser(user models.User) (models.User, error) {
+func CreateUser(user model.User) (model.User, error) {
 	err := db.Create(&user).Error
 	if err != nil {
-		return models.User{}, err
+		return model.User{}, err
 	}
 
 	return user, nil
