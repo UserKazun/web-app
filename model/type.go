@@ -5,3 +5,8 @@ type User struct {
 	Password string
 	Username string
 }
+
+type SampleData struct {
+	ID   string `gorm:"primary_key"`
+	Name string
+}
