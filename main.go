@@ -1,13 +1,10 @@
 package main
 
 import (
-	"fmt"
-
-	model "local.packages/model"
+	"local.packages/router"
 )
 
 func main() {
-	db := model.NewDBConn()
-
-	fmt.Println(db)
+	r := router.GetRouter()
+	r.Run(":8080")
 }

@@ -25,5 +25,5 @@ func GetDBConn() *gorm.DB {
 }
 
 func GetDBConfig() (string, string) {
-	return "mysql", "root:root@tcp(127.0.0.1:3306)/test_database?charset=utf8&parseTime=True&loc=Asia%2FTokyo"
+	return "mysql", "root:root@tcp(127.0.0.1)/test_database?charset=utf8&parseTime=True&loc=Asia%2FTokyo"
 }

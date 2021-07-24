@@ -4,11 +4,25 @@ import (
 	"local.packages/model"
 )
 
-func CreateSampleData(sampleData model.SampleData) (model.SampleData, error) {
+func InsertSampleData(name string) error {
+	sampleData := model.SampleData{}
+
+	sampleData.Name = name
 	err := db.Create(&sampleData).Error
 	if err != nil {
-		return model.SampleData{}, err
+		return err
 	}
 
-	return sampleData, nil
+	return nil
+}
+
+func GetSampleData() ([]model.SampleData, error) {
+	sampleData := []model.SampleData{}
+
+	err := db.Find(&sampleData).Error
+	if err != nil {
+		return nil, err
+	}
+
+	return sampleData, err
 }

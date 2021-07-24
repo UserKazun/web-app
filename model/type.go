@@ -7,6 +7,6 @@ type User struct {
 }
 
 type SampleData struct {
-	ID   string `gorm:"primary_key"`
+	ID   uint `gorm:"primary_key"`
 	Name string
 }
