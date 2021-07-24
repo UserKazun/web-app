@@ -16,10 +16,13 @@ func InsertSampleData(name string) error {
 	return nil
 }
 
-func GetSampleData(sampleId uint) model.SampleData {
-	sampleData := model.SampleData{}
+func GetSampleData() ([]model.SampleData, error) {
+	sampleData := []model.SampleData{}
 
-	db.Where("id = ?", sampleId).First(&sampleData)
+	err := db.Find(&sampleData).Error
+	if err != nil {
+		return nil, err
+	}
 
-	return sampleData
+	return sampleData, err
 }

@@ -8,5 +8,5 @@ import (
 func apiRouter(api *gin.RouterGroup) {
 	api.POST("/sampleData", controller.PostSampleData)
 
-	api.GET("/sampleData/:sample_id", controller.GetSampleData)
+	api.GET("/sampleDataList", controller.GetSampleData)
 }

@@ -12,6 +12,7 @@ import (
 
 func PostSampleData(c *gin.Context) {
 	name := c.PostForm("name")
+	log.Println(name)
 
 	service.InsertSampleData(name)
 
@@ -20,19 +21,22 @@ func PostSampleData(c *gin.Context) {
 
 func GetSampleData(c *gin.Context) {
 	sampleData := model.SampleData{}
+	sampleDataList := []model.SampleData{}
 
-	var err error
-
-	sampleId, err := GetUint(c, "sample_id")
+	modelSampleData, err := service.GetSampleData()
 	if err != nil {
-		log.Println("The sample id does not match.")
-		c.AbortWithStatus(http.StatusBadRequest)
+		c.AbortWithStatus(http.StatusInternalServerError)
 		return
 	}
 
-	modelSampleData := service.GetSampleData(sampleId)
+	for _, modelSampleDatum := range modelSampleData {
+		sampleData.ID = modelSampleDatum.ID
+		sampleData.Name = modelSampleDatum.Name
+		sampleDataList = append(sampleDataList, sampleData)
+	}
 
-	sampleData.Name = modelSampleData.Name
-
-	c.JSON(http.StatusOK, sampleData)
+	c.JSONP(http.StatusOK, gin.H{
+		"message": "ok",
+		"data":    sampleDataList,
+	})
 }
