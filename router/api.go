@@ -6,7 +6,11 @@ import (
 )
 
 func apiRouter(api *gin.RouterGroup) {
-	api.POST("/sampleData", controller.PostSampleData)
+	api.POST("/sample_data", controller.PostSampleData)
 
-	api.GET("/sampleDataList", controller.GetSampleData)
+	api.GET("/sample_data_list", controller.GetSampleData)
+
+	api.DELETE("/sample_data/:sample_id", controller.DeleteSampleData)
+
+	api.PUT("/sample_data", controller.PutSampleData)
 }
